@@ -1,20 +1,80 @@
-// Beaver_dog_class.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+// Beaver_dog_class.cpp
+// Kyla Beaver 
 
 #include <iostream>
+#include <string>
+
+using namespace std;
+
+class Dog {
+private:
+    string name; int age; string breed;
+
+public:
+    //setters
+    void setName(string names) { 
+        name = names;
+    };
+    void setAge(int ages) {
+        age = ages;
+    };
+    void setBreed(string breed) {};
+    Dog(string n, int a, string b) { 
+        //this is a constructor so i can 
+        //hard code values in main
+        name = n;
+        age = a;
+        breed = b;
+    }
+
+    //getters
+    string getName() {
+        return name;
+    }
+    int getAge() {
+        return age;
+    }
+    string getBreed() {
+        return breed;
+    }
+
+    //functions
+    void bark() {
+        cout << "Woof! Woof!\n";
+    }
+    void displayDog() {
+        //displays all dog attributes to console
+        cout << "Name: " << getName() << endl;
+        cout << "Age: " << getAge() << endl;
+        cout << "Breed: " << getBreed() << endl;
+        cout << "------------------------\n";
+    };
+};
+
+
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    //declaring dog object and hard coding data into constructor
+    Dog dog1("Max", 7, "Golden Retriever");
+
+    //display members
+    dog1.displayDog();
+    dog1.bark();
+
+    //input from user - change age
+    int newAge;
+    cout << dog1.getName() << " has had a birthday since then, how old are" << 
+                              " they now? \n"; //this is an excuse to change age
+    cout << "New age: ";
+    cin >> newAge;
+    dog1.setAge(newAge);
+    cout << endl;
+
+    //output new info
+    dog1.displayDog();
+    dog1.bark();
+
+
+    return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
